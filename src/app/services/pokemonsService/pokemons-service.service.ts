@@ -5,16 +5,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PokemonsService {
-  allPokemons:any;
+  allPokemons:any[] = []
   constructor(private http: HttpClient) {
    }
 
-    getAll(): Observable<any>{
+    getAll(){
       let pokemonNumber=1;
     while( pokemonNumber< 151){
-      this.http.get("https://pokeapi.co/api/v2/pokemon/2").subscribe(  pokemon => {
+      this.http.get(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`).subscribe(  pokemon => {
         this.allPokemons.push( pokemon ) 
       })
+      pokemonNumber++
     }
     return this.allPokemons; 
   }

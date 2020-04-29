@@ -1,3 +1,14 @@
 <p>pokemon-list works!</p>
-<p>{{pokemon | json}}</p>
-<!-- <p *ngFor="let poke of pokemon.results">teste pokemon : {{poke.name}}</p> -->
+<!-- <p>{{pokemon | json}}</p> -->
+<section id="PokemonList">
+    <div class="grid-2-col">
+        <div class="poke-containter">
+            <p ngClass="if poke.type = grass entao verde"
+            *ngFor="let poke of pokemon">teste pokemon : {{poke.name}}</p>
+        </div>
+        <div class="pokemon-details">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</section>
+

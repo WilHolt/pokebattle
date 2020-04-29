@@ -7,12 +7,11 @@ import { PokemonsService } from 'src/app/services/pokemonsService/pokemons-servi
 })
 export class PokemonListComponent implements OnInit {
   pokemon:any;
+
   constructor(private pService: PokemonsService) { }
 
   async ngOnInit()  {
-    this.pService.getAll().subscribe( pokemon => {
-      console.log(pokemon)
-    });
+  this.pokemon = this.pService.getAll()
   }
 
 }
