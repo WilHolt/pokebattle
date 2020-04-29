@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PokedexModule } from './pokedex/pokedex.module';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PokedexModule } from './pokedex/pokedex.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PokedexModule
+    PokedexModule,
+    ServicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
