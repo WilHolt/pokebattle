@@ -1,9 +1,11 @@
 <p>pokemon-list works!</p>
 <!-- <p>{{pokemon | json}}</p> -->
 <section id="PokemonList">
+<app-popup  [isOpen]="popupTrigger" (changeEmiter)="popupTrigger= $event" ></app-popup>
+
     <div class="grid-2-col">
         <div class="poke-containter">
-            <p ngClass="if poke.type = grass entao verde"
+            <p (click)="openPopup()"ngClass="if poke.type = grass entao verde"
             *ngFor="let poke of pokemon">teste pokemon : {{poke.name}}</p>
         </div>
         <div class="pokemon-details">
@@ -11,4 +13,3 @@
         </div>
     </div>
 </section>
-
