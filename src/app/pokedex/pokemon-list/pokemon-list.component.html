@@ -1,10 +1,9 @@
-<p>pokemon-list works!</p>
 <!-- <p>{{pokemon | json}}</p> -->
 <section id="PokemonList">
 <app-popup  [isOpen]="popupTrigger" (changeEmiter)="popupTrigger= $event" ></app-popup>
 
     <div class="grid-2-col">
-        <div class="poke-containter">
+        <div class="poke-container">
             <p (click)="openPopup()"
             *ngFor="let poke of pokemon">teste pokemon : {{poke.name}}</p>
         </div>

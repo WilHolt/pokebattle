@@ -5,16 +5,17 @@ import * as moment from 'moment'
   providedIn: 'root'
 })
 export class AuthService {
-  url = 'localhost:3000/login'
+  url = 'http://localhost:3000/login'
   constructor( private http:HttpClient) {
 
    }
 
-   login(user){
-      this.http.post(this.url,user).subscribe((result:any) => {
+   async login(user): Promise<any>{
+      return await this.http.post(this.url,user).subscribe((result:any) => {
+        console.log(result)
         const expiresAt = moment().add(result.expiresIn,'second')
-        localStorage.setItem('user', result.token)
-        localStorage.setItem('token', result.token)
+        localStorage.setItem('user', result.payload.dbUser)
+        localStorage.setItem('token', result.acess_token)
         localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) )
       })
 
@@ -38,6 +39,7 @@ export class AuthService {
     return false
   }
   isLoggedIn() {
+    console.log(this.getExpiration())
     return moment().isBefore(this.getExpiration())
   }
   
@@ -47,6 +49,7 @@ export class AuthService {
   
   getExpiration() {
       const expiration = localStorage.getItem("expires_at")
+      console.log(expiration)
       const expiresAt = JSON.parse(expiration);
       return moment(expiresAt);
   }    

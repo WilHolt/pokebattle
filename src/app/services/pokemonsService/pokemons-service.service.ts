@@ -19,5 +19,9 @@ export class PokemonsService {
     }
     return this.allPokemons; 
   }
-
+  getPokemonDetails(pokemonId){
+    this.http.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`).subscribe(  pokemon => {
+        this.allPokemons.push( pokemon ) 
+      })
+  }
 }

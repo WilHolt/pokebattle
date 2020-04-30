@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemon-details.component.less']
 })
 export class PokemonDetailsComponent implements OnInit {
+  pokemon:IPokemon = {
 
+ }
   constructor() { }
 
   ngOnInit() {

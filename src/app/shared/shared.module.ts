@@ -18,6 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports:[    
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule]
+    MatButtonModule,ReactiveFormsModule]
 })
 export class SharedModule { }
