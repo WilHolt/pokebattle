@@ -41,7 +41,7 @@ export class PopupComponent implements OnInit {
       password: this.loginForm.value.password
     }
     await this.auth.login(user)
-    this.router.navigate(['/pokemon'])
+    this.router.navigate([''])
     this.close()
    
   }

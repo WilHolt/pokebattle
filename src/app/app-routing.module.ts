@@ -10,7 +10,7 @@ const routes: Routes = [
     path:'', component:PokemonListComponent,
     canActivateChild:[AuthGuard],
     children: [
-      {path:'pokemon', component:PokemonDetailsComponent }
+      {path:'pokemon/:name', component:PokemonDetailsComponent }
     ]
   }
 ];

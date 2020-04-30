@@ -4,8 +4,19 @@
 
     <div class="grid-2-col">
         <div class="poke-container">
-            <p (click)="openPopup()"
-            *ngFor="let poke of pokemon">teste pokemon : {{poke.name}}</p>
+            <ul class="pokemon-list">
+                <li class="pokemonItem" (click)="getPokeDetails(poke.name)"
+                *ngFor="let poke of pokemon">
+                <span class="poke-name"> {{poke.name}}</span>
+                <br>
+                <span>Habilidades: </span><span class="poke-move" *ngFor="let movesArray of poke.moves">
+                {{movesArray.move.name}}
+            </span> 
+            <br>
+            <span>Tipos</span><span class="poke-type" *ngFor="let typeArray of poke.types">
+                {{typeArray.type.name}}
+            </span> </li>
+            </ul>
         </div>
         <div class="pokemon-details">
             <router-outlet></router-outlet>
